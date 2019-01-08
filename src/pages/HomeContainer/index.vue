@@ -16,10 +16,10 @@
                 </router-link>
             </li>
             <li>
-                <a href="">
+                <router-link to="/home/photoSharing">
                     <img src="../../images/menu2.png" alt="">
                     <span>图片欣赏</span>
-                </a>
+                </router-link>
             </li>
             <li>
                 <a href="">

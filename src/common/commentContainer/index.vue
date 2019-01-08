@@ -15,6 +15,7 @@
 </template>
 
 <script>
+
 export default {
     data(){
         return{
@@ -40,8 +41,16 @@ export default {
         },
         Publish(){
             this.$http.post('api/postcomment/'+this.id,{content:this.introduction}).then(res=>{
-                console.log(res)
-                this.introduction=""
+               if(res.body.status===0){
+                   this.data=[]
+                   this.pageindex = 1
+                   this.getComment()
+                    this.$toast('提示信息') 
+                   this.introduction=""
+               }else{
+                   
+               }
+                
             })
         }
     },

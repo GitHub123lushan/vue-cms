@@ -6,6 +6,7 @@ import search from '@/pages/SearchContainer'
 import shopcar from '@/pages/ShopcarContainer'
 import newsList from '@/pages/newsListContainer'
 import newpart from '@/pages/newParticularsContainer'
+import photoSharing from '@/pages/photoSharingContainer'
 Vue.use(Router)
 
 export default new Router({
@@ -16,7 +17,8 @@ export default new Router({
     {path:'/search',component:search},
     {path:'/shopcar',component:shopcar},
     {path:'/home/newsList',component:newsList},
-    {path:'/home/newParticulars/:id',component:newpart}
+    {path:'/home/newParticulars/:id',component:newpart},
+    {path:'/home/photoSharing',component:photoSharing}
   ],
   linkActiveClass: 'is-selected' 
 }
