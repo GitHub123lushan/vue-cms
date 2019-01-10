@@ -10,11 +10,20 @@ import '@/lib/common/common.css'
 import resource from 'vue-resource'
 import moment from 'moment'
 import comment from '@/common/commentContainer'
+
+// Vue.js图片预览插件
+import vuePicturePreview from 'vue-picture-preview'
+
+//导入Vuex模块
+import store from '@/store'
+
+
 Vue.use(MintUI)
 
 
 
 Vue.use(resource)
+Vue.use(vuePicturePreview)
 Vue.component("comment_box",comment)
 Vue.http.options.root = 'http://www.lovegf.cn:8899';
 Vue.http.options.emulateHTTP = true;
@@ -26,6 +35,7 @@ Vue.filter("timeFiltration",(time,pattern = 'YYYY-MM-DD HH:mm:ss')=>{
 new Vue({
   el: '#app',
   router,
+  store,
   render:c=>c(app)
   
 })

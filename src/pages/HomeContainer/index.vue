@@ -1,6 +1,6 @@
 <template>
   <div>
-    <mt-swipe :auto="4000">
+      <mt-swipe :auto="4000">
       <mt-swipe-item v-for="(item,index) in message" :key="index">
           <a :href="item.url">
               <img :src="item.img" alt="">
@@ -22,10 +22,10 @@
                 </router-link>
             </li>
             <li>
-                <a href="">
+                <router-link to="/home/commodityList">
                     <img src="../../images/menu3.png" alt="">
                     <span>商品购买</span>
-                </a>
+                </router-link>
             </li>
             <li>
                 <a href="">

@@ -14,11 +14,13 @@
     <div class="content">
       <ul>
         <li v-for="item in list" :key="item.id">
-          <img v-lazy="item.img_url">
-          <div class="describe">
+          <router-link :to='"/home/pictureDetails/"+item.id'>
+            <img v-lazy="item.img_url">
+            <div class="describe">
             <h3>{{item.title}}</h3>
             <span>{{item.zhaiyao}}</span>
-          </div>
+            </div>
+          </router-link>
         </li>
       </ul>
     </div>
@@ -76,7 +78,6 @@ export default {
         if (res.body.status === 0) {
           this.list = res.body.message;
         }
-        console.log(res.body.message);
       });
       this.xid = index;
     }
@@ -89,7 +90,7 @@ export default {
     width: 100vw;
     overflow: hidden;
     .tab_content {
-      line-height: 2rem;
+      padding: 10px 0;
       overflow: hidden;
       .tab_item {
         text-align: center;

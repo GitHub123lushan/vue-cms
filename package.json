@@ -5,7 +5,7 @@
   "author": "GitHub123lushan <646887125@qq.com>",
   "private": true,
   "scripts": {
-    "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
+    "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js --host 0.0.0.0",
     "start": "npm run dev",
     "build": "node build/build.js"
   },
@@ -15,8 +15,11 @@
     "mint-ui": "^2.2.13",
     "moment": "^2.23.0",
     "vue": "^2.5.2",
+    "vue-picture-preview": "^1.2.0",
+    "vue-picture-preview-extend": "^1.0.3",
     "vue-resource": "^1.5.1",
-    "vue-router": "^3.0.1"
+    "vue-router": "^3.0.1",
+    "vuex": "^3.0.1"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.2",

@@ -28,7 +28,6 @@ export default {
     methods:{
         getComment(){
             this.$http.get('api/getcomments/'+this.id+'?pageindex='+this.pageindex).then(res=>{
-                console.log(res.body.message);
                 if(res.body.status===0){
                     // this.data=res.body.message
                     this.data.push.apply(this.data,res.body.message)
