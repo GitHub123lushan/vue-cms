@@ -12,6 +12,7 @@
   "dependencies": {
     "better-scroll": "^1.13.4",
     "cube-ui": "^1.12.7",
+    "loading": "^1.13.3",
     "mint-ui": "^2.2.13",
     "moment": "^2.23.0",
     "vue": "^2.5.2",

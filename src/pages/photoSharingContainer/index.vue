@@ -33,7 +33,7 @@ export default {
     return {
       xid: 0,
       itemList: [],
-      list: ""
+      list:[],
     };
   },
   created() {
@@ -111,14 +111,15 @@ export default {
       img {
         display: block;
         width: 100%;
+        min-height: 3rem;
       }
       img[lazy="loading"] {
-        width: 40px;
-        height: 300px;
+        width: .4rem;
+        height: .4rem;
         margin: auto;
       }
       .describe {
-        height: 80px;
+        height: .8rem;
         position: absolute;
         bottom: 0;
         left: 0;

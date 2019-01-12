@@ -20,7 +20,7 @@
     <div class="settlement">
         <div class="and">
             <p>总计(不含运费)</p>
-            <p>已勾选商品 <span> {{and}} </span> 件, 总价 <span>¥ {{money}} </span> </p>
+            <p>已勾选商品 <span> {{statisticalMoney.and}} </span> 件, 总价 <span>¥ {{statisticalMoney.money}} </span> </p>
         </div>
         <mt-button type="danger">去结算</mt-button>
     </div>
@@ -33,8 +33,6 @@ export default {
     return {
       quantity: 1,
       getshopcarlist:[],
-      money:0,
-      and:0,
       flag:false
     };
   },
@@ -49,21 +47,20 @@ export default {
                     ltem.checked = this.$store.getters.goodsIdSelection[ltem.id]
                 })
             }
-            this.statisticalMoney()
         })
       }else{
         this.flag=true
       }
       },
       goodsAdd(index,data){
-          this.statisticalMoney()
+     
           this.getshopcarlist[index].count++
           this.$set(this.getshopcarlist,index,this.getshopcarlist[index])
           this.goodsUpdate(index,data)
       },
         reduce(index,data){
             if(data.count>=1){
-             this.statisticalMoney()
+       
           this.getshopcarlist[index].count--
           this.$set(this.getshopcarlist,index,this.getshopcarlist[index])
           this.goodsUpdate(index,data)
@@ -74,31 +71,35 @@ export default {
           if(data.count<1){
               data.count=1
             this.getshopcarlist[index].count=1
-          this.$set(this.getshopcarlist,index,this.getshopcarlist[index])
           }
-          this.statisticalMoney()
+          this.$set(this.getshopcarlist,index,this.getshopcarlist[index])
           this.$store.commit("updateCount",data)
       },
       goodsRemove(id,index){
           this.getshopcarlist.splice(index,1)
           this.$store.commit('removeList',id)
-          this.statisticalMoney()
-      },
-      statisticalMoney(){
-          if(this.getshopcarlist.length>=0){
-              this.and=0
-              this.money=0
-              this.getshopcarlist.forEach(item =>{
-                   if(item.checked){
-                    this.and +=item.count
-                    this.money +=item.count*item.sell_price
-                   }
-              })
-          }
+          
       }
   },
   created(){
       this.getGoods()
+  },
+  computed:{
+    statisticalMoney(){
+          if(this.getshopcarlist.length>=0){
+              var o={
+                and:0,
+                money:0
+              }
+              this.getshopcarlist.forEach(item =>{
+                   if(item.checked){
+                    o.and +=item.count
+                    o.money +=item.count*item.sell_price
+                   }
+              })
+          }
+          return o
+      }
   }
 };
 </script>
